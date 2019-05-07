@@ -1,0 +1,543 @@
+{
+    "title": "Security Center",
+    "description": "API spec for Microsoft.Security (Azure Security Center) resource provider",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/security/2017-08-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AutoProvisioningSettings_List": {
+            "main": "./lib/actions/AutoProvisioningSettings_List.js",
+            "title": "Exposes the auto provisioning settings of the subscriptions",
+            "description": "Exposes the auto provisioning settings of the subscriptions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AutoProvisioningSettings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AutoProvisioningSettings_Get": {
+            "main": "./lib/actions/AutoProvisioningSettings_Get.js",
+            "title": "Details of a specific setting",
+            "description": "Details of a specific setting",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AutoProvisioningSettings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AutoProvisioningSettings_Create": {
+            "main": "./lib/actions/AutoProvisioningSettings_Create.js",
+            "title": "Details of a specific setting",
+            "description": "Details of a specific setting",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AutoProvisioningSettings_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pricings_List": {
+            "main": "./lib/actions/Pricings_List.js",
+            "title": "Security pricing configurations in the subscription",
+            "description": "Security pricing configurations in the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pricings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pricings_GetSubscriptionPricing": {
+            "main": "./lib/actions/Pricings_GetSubscriptionPricing.js",
+            "title": "Security pricing configuration in the subscriptionSecurity pricing configuration in the subscription",
+            "description": "Security pricing configuration in the subscriptionSecurity pricing configuration in the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pricings_GetSubscriptionPricing.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pricings_UpdateSubscriptionPricing": {
+            "main": "./lib/actions/Pricings_UpdateSubscriptionPricing.js",
+            "title": "Security pricing configuration in the subscription",
+            "description": "Security pricing configuration in the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pricings_UpdateSubscriptionPricing.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SecurityContacts_List": {
+            "main": "./lib/actions/SecurityContacts_List.js",
+            "title": "Security contact configurations for the subscription",
+            "description": "Security contact configurations for the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SecurityContacts_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SecurityContacts_Delete": {
+            "main": "./lib/actions/SecurityContacts_Delete.js",
+            "title": "Security contact configurations for the subscription",
+            "description": "Security contact configurations for the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SecurityContacts_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SecurityContacts_Get": {
+            "main": "./lib/actions/SecurityContacts_Get.js",
+            "title": "Security contact configurations for the subscription",
+            "description": "Security contact configurations for the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SecurityContacts_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SecurityContacts_Update": {
+            "main": "./lib/actions/SecurityContacts_Update.js",
+            "title": "Security contact configurations for the subscription",
+            "description": "Security contact configurations for the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SecurityContacts_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SecurityContacts_Create": {
+            "main": "./lib/actions/SecurityContacts_Create.js",
+            "title": "Security contact configurations for the subscription",
+            "description": "Security contact configurations for the subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SecurityContacts_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_List": {
+            "main": "./lib/actions/Settings_List.js",
+            "title": "Settings about different configurations in security center",
+            "description": "Settings about different configurations in security center",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_Get": {
+            "main": "./lib/actions/Settings_Get.js",
+            "title": "Settings of different configurations in security center",
+            "description": "Settings of different configurations in security center",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Settings_Update": {
+            "main": "./lib/actions/Settings_Update.js",
+            "title": "updating settings about different configurations in security center",
+            "description": "updating settings about different configurations in security center",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Settings_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkspaceSettings_List": {
+            "main": "./lib/actions/WorkspaceSettings_List.js",
+            "title": "Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set",
+            "description": "Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkspaceSettings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkspaceSettings_Delete": {
+            "main": "./lib/actions/WorkspaceSettings_Delete.js",
+            "title": "Deletes the custom workspace settings for this subscription. new VMs will report to the default workspace",
+            "description": "Deletes the custom workspace settings for this subscription. new VMs will report to the default workspace",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkspaceSettings_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkspaceSettings_Get": {
+            "main": "./lib/actions/WorkspaceSettings_Get.js",
+            "title": "Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set",
+            "description": "Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkspaceSettings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkspaceSettings_Update": {
+            "main": "./lib/actions/WorkspaceSettings_Update.js",
+            "title": "Settings about where we should store your security data and logs",
+            "description": "Settings about where we should store your security data and logs",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkspaceSettings_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "WorkspaceSettings_Create": {
+            "main": "./lib/actions/WorkspaceSettings_Create.js",
+            "title": "creating settings about where we should store your security data and logs",
+            "description": "creating settings about where we should store your security data and logs",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/WorkspaceSettings_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pricings_ListByResourceGroup": {
+            "main": "./lib/actions/Pricings_ListByResourceGroup.js",
+            "title": "Security pricing configurations in the resource group",
+            "description": "Security pricing configurations in the resource group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pricings_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pricings_GetResourceGroupPricing": {
+            "main": "./lib/actions/Pricings_GetResourceGroupPricing.js",
+            "title": "Security pricing configuration in the resource group",
+            "description": "Security pricing configuration in the resource group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pricings_GetResourceGroupPricing.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pricings_CreateOrUpdateResourceGroupPricing": {
+            "main": "./lib/actions/Pricings_CreateOrUpdateResourceGroupPricing.js",
+            "title": "Security pricing configuration in the resource group",
+            "description": "Security pricing configuration in the resource group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pricings_CreateOrUpdateResourceGroupPricing.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AdvancedThreatProtection_Get": {
+            "main": "./lib/actions/AdvancedThreatProtection_Get.js",
+            "title": "Gets the Advanced Threat Protection settings for the specified resource.",
+            "description": "Gets the Advanced Threat Protection settings for the specified resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AdvancedThreatProtection_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AdvancedThreatProtection_Create": {
+            "main": "./lib/actions/AdvancedThreatProtection_Create.js",
+            "title": "Creates or updates the Advanced Threat Protection settings on a specified resource.",
+            "description": "Creates or updates the Advanced Threat Protection settings on a specified resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AdvancedThreatProtection_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Compliances_List": {
+            "main": "./lib/actions/Compliances_List.js",
+            "title": "The Compliance scores of the specific management group.",
+            "description": "The Compliance scores of the specific management group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Compliances_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Compliances_Get": {
+            "main": "./lib/actions/Compliances_Get.js",
+            "title": "Details of a specific Compliance.",
+            "description": "Details of a specific Compliance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Compliances_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InformationProtectionPolicies_List": {
+            "main": "./lib/actions/InformationProtectionPolicies_List.js",
+            "title": "Information protection policies of a specific management group.",
+            "description": "Information protection policies of a specific management group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InformationProtectionPolicies_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InformationProtectionPolicies_Get": {
+            "main": "./lib/actions/InformationProtectionPolicies_Get.js",
+            "title": "Details of the information protection policy.",
+            "description": "Details of the information protection policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InformationProtectionPolicies_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InformationProtectionPolicies_CreateOrUpdate": {
+            "main": "./lib/actions/InformationProtectionPolicies_CreateOrUpdate.js",
+            "title": "Details of the information protection policy.",
+            "description": "Details of the information protection policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InformationProtectionPolicies_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
+        },
+        "settingName": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "MCAS",
+                "WDATP"
+            ]
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "description": "Describes an Azure resource.",
+                            "properties": {
+                                "id": {
+                                    "description": "Resource Id",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Resource name",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "Resource type",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                        }
+                    ],
+                    "description": "The kind of the security setting",
+                    "properties": {
+                        "kind": {
+                            "description": "the kind of the settings string (DataExportSetting)",
+                            "enum": [
+                                "DataExportSetting",
+                                "AlertSuppressionSetting"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "SettingKind",
+                                "values": [
+                                    {
+                                        "value": "DataExportSetting"
+                                    },
+                                    {
+                                        "value": "AlertSuppressionSetting"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "kind"
+                    ],
+                    "type": "object"
+                }
+            ],
+            "description": "Represents a security setting in Azure Security Center.",
+            "discriminator": {
+                "propertyName": "kind"
+            },
+            "properties": {},
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2017-08-01-preview"
+            ]
+        }
+    }
+}

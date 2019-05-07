@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceId": {
+            "required": true,
+            "type": "string"
+        },
+        "settingName": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "current"
+            ]
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Describes an Azure resource.",
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource name",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                }
+            ],
+            "description": "The Advanced Threat Protection resource.",
+            "properties": {
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "description": "The Advanced Threat Protection settings.",
+                    "properties": {
+                        "isEnabled": {
+                            "description": "Indicates whether Advanced Threat Protection is enabled.",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2017-08-01-preview"
+            ]
+        }
+    }
+}

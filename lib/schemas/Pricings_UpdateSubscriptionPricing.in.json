@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
+        },
+        "pricingName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Describes an Azure resource.",
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource name",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                }
+            ],
+            "description": "Pricing tier will be applied for the scope based on the resource ID",
+            "properties": {
+                "properties": {
+                    "description": "Pricing data",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "pricingTier": {
+                            "description": "Pricing tier type",
+                            "enum": [
+                                "Free",
+                                "Standard"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "pricingTier",
+                                "values": [
+                                    {
+                                        "description": "Get free Azure security center experience with basic security features",
+                                        "value": "Free"
+                                    },
+                                    {
+                                        "description": "Get the standard Azure security center experience with advanced security features",
+                                        "value": "Standard"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "pricingTier"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2017-08-01-preview"
+            ]
+        }
+    }
+}

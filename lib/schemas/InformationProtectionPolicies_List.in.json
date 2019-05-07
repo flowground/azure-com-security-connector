@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "scope": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2017-08-01-preview"
+            ]
+        }
+    }
+}
